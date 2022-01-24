@@ -8,8 +8,8 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/handwheel3018/include",
-                "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/handwheel3018/src",
+                "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/src/include",
+                "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/src/src",
                 "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                 "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -23,8 +23,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/handwheel3018/include",
-                    "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/handwheel3018/src",
+                    "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/src/include",
+                    "c:/OneDrive-patterson/OneDrive/3D Models/3018 Offline Controller/src/src",
                     "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                     "C:/Users/ranpat/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",

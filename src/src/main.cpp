@@ -9,17 +9,24 @@
 
 
 //encode pins 
-#define clk_pin 8
-#define dx_pin 9
+#define clk_pin       8
+#define dx_pin        9
+//Move 1 mm
+#define distanceA_pin 15
+//Move .1 mm
+#define distanceB_pin 14
 
-#define x_button_pin 10
-#define y_button_pin 11
-#define z_button_pin 12
+#define x_button_pin  10
+#define y_button_pin  11
+#define z_button_pin  12
+
 
 
 int clk_prev=1;
 unsigned long previousMillis = 0;
+//How long the current CNC move command will take to coplete
 unsigned long delay_in_ms = 0;
+//used to determin how long ago (in ms) the encode changed states.  If it's too short ignore it (noise)
 unsigned long encoder_prev_millis = 0;
 int encoder_prev_val;
 
@@ -52,12 +59,6 @@ int encoder_update() {
   unsigned long current_millis = millis();
   unsigned long elapsed = current_millis - encoder_prev_millis;
 
-  //Serial.print("pre: ");
-  //Serial.print(clk_prev);
-
-  //Serial.print(", clk: ");
-  //Serial.print(clk);
-
   //transition from high to low
   if ( clk_prev ==1 &&  clk == 0) { 
     int dt = digitalRead(dx_pin);    
@@ -70,31 +71,28 @@ int encoder_update() {
     } else {
       encoder_prev_val = ret_val;
     }
-    //Serial.print(", dt: ");
-    //Serial.print(dt);
   }
-  //Serial.println();
   clk_prev = clk;
-
-
   return ret_val;
 }
 
 
 void setup() {
-  Serial.begin(115200);
-
   pinMode(clk_pin,INPUT);
   pinMode(dx_pin,INPUT);
 
   pinMode(x_button_pin,INPUT_PULLUP);
   pinMode(y_button_pin,INPUT_PULLUP);
   pinMode(z_button_pin,INPUT_PULLUP);
+  pinMode(distanceA_pin,INPUT_PULLUP);
+  pinMode(distanceB_pin,INPUT_PULLUP);  
 
   clk_prev = digitalRead(clk_pin);
 }
 
 void loop() {
+  
+
   unsigned long currentMillis = millis();
   unsigned long elapsedMillis = currentMillis - previousMillis;
 
@@ -104,8 +102,8 @@ void loop() {
 
     int feedRate = 0;
     char axis = 'X';
-    int distance = 1;
-    
+    float distance = 0;
+
     //determin axis to move and feedrate
     if (digitalRead(x_button_pin) == 0) { 
       axis = 'X'; 
@@ -119,27 +117,35 @@ void loop() {
       feedRate = z_max_feed_rate;
     }
 
+    if (digitalRead(distanceA_pin) == 0) distance = 1.0;
+
+    if (digitalRead(distanceB_pin) == 0) distance = 0.1;
+
+    if (feedRate > 0 && distance > 0.0 ) {
       //create command to send to CNC
       String cmd = "$J=G21G91";
       cmd.concat(axis);
-      //determin direction based on encoder direction 
+      //determine direction based on encoder direction 
       if (enc_val == -1) {
         cmd.concat('-');
       }
       cmd.concat(distance);
       cmd.concat('F');
       cmd.concat(feedRate);
-
+      
+      Serial.begin(115200);     
       Serial.println(cmd);
+      Serial.end();      
   
-      // save the last time you sent a command
-      previousMillis = currentMillis;
+    }
+    // save the last time you sent a command
+    previousMillis = currentMillis;
 
 
-      //only send commands after the last one completed
-      //calculate how long it will take for CNC to complete this command in ms
-      //Distance in mm and feed rate is mm/min.  60000 is the # of milliseconds in a minute
-      delay_in_ms = (float)distance / (float)feedRate * 60000;
+    //only send commands after the last one completed
+    //calculate how long it will take for CNC to complete this command in ms
+    //Distance in mm and feed rate is mm/min.  60000 is the # of milliseconds in a minute
+    delay_in_ms = distance / (float)feedRate * 60000;
 
   }
   
