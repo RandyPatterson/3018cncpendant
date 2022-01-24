@@ -250,4 +250,12 @@ Wire Wire Line
 	7850 2400 7650 2400
 Wire Wire Line
 	4600 1950 7850 1950
+Text GLabel 6900 2500 0    50   Input ~ 0
+GND
+Text GLabel 6900 2600 0    50   Input ~ 0
+Vcc
+Wire Wire Line
+	7150 2500 6900 2500
+Wire Wire Line
+	7150 2600 6900 2600
 $EndSCHEMATC

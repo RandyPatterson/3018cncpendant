@@ -190,7 +190,7 @@ U 1 1 61F063FC
 P 8050 2900
 F 0 "J2" H 8130 2942 50  0000 L CNN
 F 1 "SW 1" H 8130 2851 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Horizontal" H 8050 2900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8050 2900 50  0001 C CNN
 F 3 "~" H 8050 2900 50  0001 C CNN
 	1    8050 2900
 	1    0    0    -1  
@@ -201,7 +201,7 @@ U 1 1 61F06BFC
 P 8100 3400
 F 0 "J6" H 8180 3442 50  0000 L CNN
 F 1 "SW 2" H 8180 3351 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Horizontal" H 8100 3400 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8100 3400 50  0001 C CNN
 F 3 "~" H 8100 3400 50  0001 C CNN
 	1    8100 3400
 	1    0    0    -1  
@@ -212,7 +212,7 @@ U 1 1 61F07311
 P 6650 4100
 F 0 "J7" V 6522 4280 50  0000 L CNN
 F 1 "SW XYZ" V 6613 4280 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 6650 4100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6650 4100 50  0001 C CNN
 F 3 "~" H 6650 4100 50  0001 C CNN
 	1    6650 4100
 	0    1    1    0   
@@ -223,7 +223,7 @@ U 1 1 61F080F7
 P 2850 3200
 F 0 "J5" V 2912 3244 50  0000 L CNN
 F 1 "Encoder 1" V 2800 3000 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 2850 3200 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2850 3200 50  0001 C CNN
 F 3 "~" H 2850 3200 50  0001 C CNN
 	1    2850 3200
 	0    -1   -1   0   

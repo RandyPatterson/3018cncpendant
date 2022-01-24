@@ -1,1 +1,4 @@
-$J=G21G91X-1F2000
+# Pendant Controller for 3018 CNC
+
+![Circuit](/media/circuit_3d.jpg)
+
