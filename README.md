@@ -37,4 +37,4 @@ Optional schematic and PCB to help cleanup the wiring.  Bypass capacitors are us
 ### Case & Handwheel Models
 
 ![Case](media/case.png) 
-![Handwheel](/media/handwheel.png)
+![Handwheel](media/handwheel.png)
