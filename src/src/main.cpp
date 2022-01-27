@@ -20,7 +20,7 @@
 #define y_button_pin  11
 #define z_button_pin  12
 
-
+#define usb_busy_pin 6
 
 int clk_prev=1;
 unsigned long previousMillis = 0;
@@ -31,7 +31,7 @@ unsigned long encoder_prev_millis = 0;
 int encoder_prev_val;
 
 /********************************************
-Decrement: when clk edge falls dx is high
+Increment: when clk edge falls dx is high
        ____
       |    |
 clk __|    |___
@@ -40,7 +40,7 @@ clk __|    |___
 dx   ___|    |___
 
 
-Increment: when clk edge falls and  dx is low
+Decrement: when clk edge falls and  dx is low
          ____ 
         |    |
 clk ____|    |___
@@ -64,11 +64,12 @@ int encoder_update() {
     int dt = digitalRead(dx_pin);    
     ret_val = dt==0 ? -1 : 1;
     encoder_prev_millis = current_millis;
-    //if not enough time has elapsed and the encoder changed directions then ignore it, probably noise
+    //if less than 50ms elapsed since last encoder change and the encoder 
+    //changed directions then ignore it, probably noise
     if (elapsed < 50 && encoder_prev_val != ret_val ) {
         ret_val = 0;
-
-    } else {
+    } 
+    else {
       encoder_prev_val = ret_val;
     }
   }
@@ -85,19 +86,23 @@ void setup() {
   pinMode(y_button_pin,INPUT_PULLUP);
   pinMode(z_button_pin,INPUT_PULLUP);
   pinMode(distanceA_pin,INPUT_PULLUP);
-  pinMode(distanceB_pin,INPUT_PULLUP);  
+  pinMode(distanceB_pin,INPUT_PULLUP); 
+
+  pinMode(usb_busy_pin,INPUT); 
 
   clk_prev = digitalRead(clk_pin);
 }
 
 void loop() {
   
+  //is high if pc plugged into CNC USB
+  int is_usb_busy = digitalRead(usb_busy_pin);
 
   unsigned long currentMillis = millis();
   unsigned long elapsedMillis = currentMillis - previousMillis;
 
   int enc_val = encoder_update();
-  if (enc_val != 0 && elapsedMillis >= delay_in_ms ) {
+  if (enc_val != 0 && elapsedMillis >= delay_in_ms  && is_usb_busy == LOW ) {
     
 
     int feedRate = 0;
