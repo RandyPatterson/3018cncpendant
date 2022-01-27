@@ -241,23 +241,23 @@ Wire Wire Line
 Wire Wire Line
 	4200 2300 4750 2300
 $Comp
-L Device:R R?
+L Device:R R2
 U 1 1 61F49319
 P 2550 2650
-F 0 "R?" H 2620 2696 50  0000 L CNN
+F 0 "R2" H 2620 2696 50  0000 L CNN
 F 1 "1K" H 2620 2605 50  0000 L CNN
-F 2 "" V 2480 2650 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 2480 2650 50  0001 C CNN
 F 3 "~" H 2550 2650 50  0001 C CNN
 	1    2550 2650
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R1
 U 1 1 61F49F79
 P 2300 2450
-F 0 "R?" V 2093 2450 50  0000 C CNN
+F 0 "R1" V 2093 2450 50  0000 C CNN
 F 1 "1K" V 2184 2450 50  0000 C CNN
-F 2 "" V 2230 2450 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 2230 2450 50  0001 C CNN
 F 3 "~" H 2300 2450 50  0001 C CNN
 	1    2300 2450
 	0    1    1    0   
@@ -280,16 +280,44 @@ Wire Wire Line
 	2550 2200 2550 2450
 Connection ~ 2550 2450
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J8
 U 1 1 61F4ED73
 P 1800 2100
-F 0 "J?" H 1718 1875 50  0000 C CNN
+F 0 "J8" H 1718 1875 50  0000 C CNN
 F 1 "SW RESET" H 1718 1966 50  0000 C CNN
-F 2 "" H 1800 2100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 1800 2100 50  0001 C CNN
 F 3 "~" H 1800 2100 50  0001 C CNN
 	1    1800 2100
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	2000 2100 2900 2100
+$Comp
+L Device:LED D?
+U 1 1 61F320CA
+P 7150 2700
+F 0 "D?" H 7143 2445 50  0000 C CNN
+F 1 "LED" H 7143 2536 50  0000 C CNN
+F 2 "" H 7150 2700 50  0001 C CNN
+F 3 "~" H 7150 2700 50  0001 C CNN
+	1    7150 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 61F32B62
+P 6850 2700
+F 0 "R?" V 6643 2700 50  0000 C CNN
+F 1 "220" V 6734 2700 50  0000 C CNN
+F 2 "" V 6780 2700 50  0001 C CNN
+F 3 "~" H 6850 2700 50  0001 C CNN
+	1    6850 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5950 2700 6700 2700
+Text GLabel 7450 2700 2    50   Input ~ 0
+GND
+Wire Wire Line
+	7300 2700 7450 2700
 $EndSCHEMATC
