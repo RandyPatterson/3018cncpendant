@@ -18,8 +18,8 @@ An Arduino based Handwheel Pendant for a generic 3018 CNC.  Allows you to easily
 
 ### This repo includes
 1. [/src](/src) = Source code for an Arduino Pro Mini (PlatformIO)
-2. [/pcb](/pcb) = Schematic and PCB layout (KiCad)
-3. [/model](/model) = STEP, Fusion360 and 3MF files for 3D printing the case and handwheel
+1. [/pcb](/pcb) = Schematic and PCB layout (KiCad)
+1. [/model](/model) = STEP, Fusion360 and 3MF files for 3D printing the case and handwheel
 
 ## Source Code
 Build using the PlatformIO plugin for VS Code.  Targeting Arduino Pro Mini but any board can be used as long as it has at least 7 open IO Ports
@@ -29,10 +29,10 @@ Optional schematic and PCB to help cleanup the wiring.  Bypass capacitors are us
 
 ![Schematic](media/schematic.png)
 ### PCB
-![Circuit](media/circuit_3d.jpg)
+![Circuit](media/pcb.png)
 
 ## Models
-3D Models for case and handwheel to 3D print.  I used a resin printer but the models should be easily printable on FDM Printers.  The Models directory includes the SMF files to print unmodified and STEP files included for situations where you want to modify the models i your favorite CAD program.  Fusion 360 files also included for users of that program.
+3D Models for case and handwheel to 3D print.  I used a resin printer but the models should be easily printable on FDM Printers.  The Models directory includes the SMF files to print unmodified and STEP files included for situations where you want to modify the 3D models in your favorite CAD program.  Fusion 360 files also included.
 
 ### Case & Handwheel Models
 
