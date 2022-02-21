@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "(5.1.10)-1"
     },
-    "CreationDate":  "2022-01-23T19:08:07-05:00"
+    "CreationDate":  "2022-01-27T18:00:35-05:00"
   },
   "GeneralSpecs":
   {
@@ -19,8 +19,8 @@
     },
     "Size":
     {
-      "X": 70.585,
-      "Y": 39.470
+      "X": 0.000,
+      "Y": 0.000
     },
     "LayerNumber": 2,
     "BoardThickness":  1.600
@@ -40,11 +40,6 @@
     {
       "Path":  "3018Pendant-B_Cu.gbr",
       "FileFunction":  "Copper,L2,Bot",
-      "FilePolarity":  "Positive"
-    },
-    {
-      "Path":  "3018Pendant-Edge_Cuts.gbr",
-      "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }
   ],

@@ -20,7 +20,9 @@
 #define y_button_pin  11
 #define z_button_pin  12
 
-#define usb_busy_pin 6
+#define usb_busy_pin 7
+#define led_green 17
+
 
 int clk_prev=1;
 unsigned long previousMillis = 0;
@@ -89,14 +91,22 @@ void setup() {
   pinMode(distanceB_pin,INPUT_PULLUP); 
 
   pinMode(usb_busy_pin,INPUT); 
+  pinMode(led_green,OUTPUT);
+
+  digitalWrite(led_green,!digitalRead(usb_busy_pin));
 
   clk_prev = digitalRead(clk_pin);
 }
 
+static int prev_busy = 0;
 void loop() {
+
+
+
   
   //is high if pc plugged into CNC USB
   int is_usb_busy = digitalRead(usb_busy_pin);
+  if (prev_busy != usb_busy_pin) digitalWrite(led_green,!is_usb_busy);
 
   unsigned long currentMillis = millis();
   unsigned long elapsedMillis = currentMillis - previousMillis;
@@ -146,6 +156,7 @@ void loop() {
     // save the last time you sent a command
     previousMillis = currentMillis;
 
+    prev_busy = is_usb_busy;
 
     //only send commands after the last one completed
     //calculate how long it will take for CNC to complete this command in ms
